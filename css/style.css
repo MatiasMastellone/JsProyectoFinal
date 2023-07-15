@@ -1,0 +1,82 @@
+
+@font-face {
+    font-family: "titleFont";
+    src: url("../res/font/titleFont.ttf"); }
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 100px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    font-family: titleFont;
+}
+
+header div{
+    display: flex;
+    align-items: center;
+}
+
+main{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.logo{
+    height: 50px;
+}
+
+.lista{
+    display: flex;
+    justify-content: space-around; 
+}
+
+
+
+.tarjeta {
+    height: 100%;
+    width: 70%;
+    background-color: white;
+    border-radius: 10px;
+    border-color: black;
+    border-style: groove;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tarjeta div{
+    display: inline-block;
+    text-align: center;
+}
+
+.tarjeta_image{
+    height: 200px;
+}
+.tarjeta_informacion {
+    padding: 12px;
+    height: 150px;
+}
+
+.contenedor{
+    display: flex;
+    justify-content: space-around;
+}
+
+.form{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: brown;
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
