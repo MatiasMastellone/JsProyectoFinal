@@ -1,49 +1,14 @@
-import { agregarAlCarrito } from "./funciones.js";
+import { agregarAlCarrito, llamarApi } from "./funciones.js";
 
-const arrayPrd = [
-  {
-    id: 1,
-    nombre: "Baguales",
-    descr: "Cerveza Berlina Rubia suave",
-    precio: 595,
-    img: "./res/img/baguales.jpg",
-  },
-  {
-    id: 2,
-    nombre: "Equilibrio BrewHouse",
-    descr: "La nueva a IPA de BH es refrescante!",
-    precio: 1625,
-    img: "./res/img/equilibrioBH.jpg",
-  },
-  {
-    id: 3,
-    nombre: "Extra Stout",
-    descr: "GAUKLER - Extra Stout",
-    precio: 550,
-    img: "./res/img/extrastout.jpg",
-  },
-  {
-    id: 4,
-    nombre: "Honey",
-    descr: "GAUKLER - Honey",
-    precio: 550,
-    img: "./res/img/honey.jpg",
-  },
-  {
-    id: 5,
-    nombre: "Que miras bobo?",
-    descr: " IPA 🇦🇷100% Argenta! Edición Limitada.",
-    precio: 1625,
-    img: "./res/img/quemirasbobo.jpg",
-  },
-  {
-    id: 6,
-    nombre: "Imperial Porter",
-    descr: "SUR DEL SUR/BA - Imperial Porter (Collab. Salmón Birra)",
-    precio: 1450,
-    img: "./res/img/sdsimperialporter.jpg",
-  },
-];
+
+let arrayPrd = [];
+
+await fetch("../res/data/product.json").then((response)=>{return response.json()}).then((json)=>{
+
+  arrayPrd=json;
+
+})
+
 
 //DOM
 const productos = document.getElementById("productos");
@@ -55,11 +20,20 @@ buttonFinalizar.innerText = "Finalizar pedido";
 const contenedor = document.createElement("div");
 contenedor.classList.add("contenedor");
 
+const contenedorTiempo = document.getElementById("meteorologia")
+
+let infoMeteo = await llamarApi();
+console.log(JSON.parse(infoMeteo));
+
+
+
+
+
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 let nroPedido = localStorage.getItem("nrPedido") || "0000000";
 
-console.log(arrayPrd);
+
 let counter = 0;
 
 arrayPrd.forEach((el) => {
