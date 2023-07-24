@@ -22,12 +22,12 @@ contenedor.classList.add("contenedor");
 
 const contenedorTiempo = document.getElementById("meteorologia")
 
-let infoMeteo = await llamarApi();
-console.log(JSON.parse(infoMeteo));
+let infoMeteo = JSON.parse(await llamarApi());
+const infoHTML = document.createElement("div");
+infoHTML.innerHTML= `<img src=${infoMeteo.current.condition.icon} alt=${infoMeteo.current.condition.text}/>
+                     <p> T ${infoMeteo.current.temp_c}°C&nbsp&nbspST ${infoMeteo.current.feelslike_c}°C</p>`;
 
-
-
-
+contenedorTiempo.appendChild(infoHTML);
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
